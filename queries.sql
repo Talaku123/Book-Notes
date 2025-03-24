@@ -1,0 +1,9 @@
+CREATE TABLE notes (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(500),
+  body TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    img_url VARCHAR(500),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+);

@@ -1,0 +1,76 @@
+<%- include("partials/header.ejs") %>
+
+<main id="main-notes" class="main">
+
+                <% notes.forEach((note) => { %>
+
+                <ul>
+                        <li>
+                                <h2><%= note.title %></h2>
+                                <div class="body-note">
+                                    <h3><%= note.body %></h3>
+                                </div>
+                                <div  class="img-note">
+                                   <img class="main-img" id="img" src="<%= note.img_url %>" alt="">
+                                </div>
+
+        
+                                <form id="add-form"   action="/add-note" method="POST" >
+
+                                        <input class="add-input" id="addd-form" type="hidden" name="title" placeholder="Add Notes:" value="<%= note.title %>">
+                                        <textarea  class="txt-area-input"  name="body" id="txt-area" placeholder="description" style="display: none;"><%= note.body %></textarea>
+                                        <button type="submit" class="add-btn add-btn-form"  >Add Notes:</button>
+                                </form>
+                    
+                                <!-- Edit Form -->
+                            
+                                <form class="edit-input" id="edit-form" action="/edit-note/<%= note.id %>" method="post" >
+                                        <input class="input-val" id="note-title" type="text" name="title" value="<%= note.title %>" >
+                                        <input class="input-val" type="url" name="img_url" id="img_url"
+                                                value="<%= note.img_url %>" placeholder="https://example.com"
+                                                pattern="https://.*" size="30" required  />
+                                                <textarea class="txt-area"  name="body" id="btn" placeholder="description"  ><%= note.body %></textarea>
+                                         <button class="edit-btn" id="sub-btn" type="submit">Edit</button>
+                                </form>
+                            
+                                <!-- Delete Form -->
+        
+                                <form class="dele-input" action="/delete-note/<%= note.id %>" method="POST">
+                                        <button class="delete-btn" id="del-btn" type="submit" >Delete</button>
+                                </form>
+                        </li>
+                        </ul>
+                        
+                <% }) %>
+
+                <script>
+                       if (document.getElementById("note-title")) {
+                           document.getElementById("note-title").hidden = true;
+                       }
+                       if (document.getElementById("btn")) {
+                           document.getElementById("btn").hidden = true;
+                       }
+                       if (document.getElementById("sub-btn")) {
+                           document.getElementById("sub-btn").hidden = true;
+                       }
+                       if (document.getElementById("del-btn")) {
+                           document.getElementById("del-btn").hidden = true;
+                       }
+                       const addBtnForms = document.getElementsByClassName("add-btn-form");
+                       if(addBtnForms.length > 0){
+                           for(let i = 1; i < addBtnForms.length; i++){
+                               addBtnForms[i].style.display="none";
+                           }
+                       }
+                     if(document.getElementsByClassName("edit-input") && document.getElementsByClassName("edit-input").style.display !== "none"){
+                         const txtAreas = document.getElementsByClassName("txt-area");
+                         for (let i = 0; i < txtAreas.length; i++) {
+                             txtAreas[i].remove();
+                         }
+                     }
+       
+                        
+                </script>
+               
+
+</main>

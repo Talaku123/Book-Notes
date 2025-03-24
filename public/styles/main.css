@@ -1,0 +1,144 @@
+*,
+*::before,
+*::after {
+    box-sizing: border - box;
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background-color: #afa8b0;
+    font-family: 'Arial', sans-serif;
+}
+
+
+h2
+{
+   font-family: 'Roboto', sans-serif;
+   font-size: 1.5rem;
+    padding: 30px 0;
+}
+
+h3
+{
+    color: rgb(105, 106, 106);
+    float: right;
+    font-weight: 100;
+    line-height: 30px;
+    width: 60%;
+}
+h3::first-letter
+{
+    color: #d04af1;
+    font-size: 5rem;
+    font-weight: 600;
+ float: left;
+ padding: 21px 5px 0 0;
+text-transform: capitalize;
+  
+}
+
+#main-notes
+{
+    background-color: azure;
+   column-gap: 10px;
+    display: grid;
+     grid-template-columns: 1fr 50ch;
+    grid-template-rows: 2fr; 
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 50px;
+    transform: 0.5s;
+}
+
+.main-img
+{   
+    border-radius: 7px;
+    height: 240px;
+    margin-bottom: 10px;
+    padding: 0 6px 0 0;
+    width: 170px;
+}
+
+ul,li
+{
+    list-style: none;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="sybmit"],
+textarea
+{
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.5px solid black;
+    cursor: pointer;
+    line-height: 1.8em;
+    margin: 1em 0;
+    outline: none;
+    width: 100%;
+
+}
+
+.add-btn
+{
+    background-color: orange;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    padding: 10px 50px;
+}
+
+.edit-btn,.delete-btn
+{
+    border: none;
+    border-radius: 6px;
+    color: azure;
+   float: left;
+   font-size: 20px;
+   letter-spacing: 2px;
+   margin: 2px 3px;
+   padding: 6px 50px ;
+   width: 48.5%;
+ 
+}
+.edit-btn
+{
+    background-color: rgb(143, 170, 143);
+}
+
+.delete-btn
+{
+    background-color: rgb(241, 194, 194);
+}
+
+@media screen and (max-width: 680px) {
+    #main-notes{
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;
+        text-align: center;
+    }
+    h2
+    {
+        text-align: start;
+        width: 350px;
+    }
+    h3
+    {
+        float: left;
+        margin-bottom: 10px;
+       width: 300px;
+    }
+
+  
+        .edit-btn,
+        .delete-btn
+        {
+            
+            margin: 6px auto 0 2.5px;
+            
+        }
+}
